@@ -22,12 +22,12 @@ Perfetta per server privati o dedicati che devono arrestarsi automaticamente a u
 - **Fabric API** installata nel server
 
 🛠️ Comandi disponibili
-Comando	Descrizione
-/shutdownscheduler add <giorno> <ora> <minuti>	Aggiunge un orario di spegnimento programmato.
-Esempio: /shutdownscheduler add lunedi 23 30
-/shutdownscheduler remove <giorno> <ora> <minuti>	Rimuove un orario di spegnimento precedentemente aggiunto.
-Esempio: /shutdownscheduler remove venerdi 18 00
-/shutdownscheduler list	Mostra tutti gli orari di spegnimento configurati.
-/shutdownscheduler reload	Ricarica il file di configurazione shutdown_scheduler.json senza riavviare il server.
-/shutdownscheduler test	Esegue un test immediato, mostrando in chat il prossimo spegnimento programmato.
-/shutdownscheduler force	Forza lo spegnimento immediato del server (equivalente a /stop).
+| Comando | Descrizione |
+|----------|-------------|
+| `/shutdownscheduler add <giorno> <ora> <minuti>` | Aggiunge un orario di spegnimento programmato. <br> Esempio: `/shutdownscheduler add lunedi 23 30` |
+| `/shutdownscheduler remove <giorno> <ora> <minuti>` | Rimuove un orario di spegnimento precedentemente aggiunto. <br> Esempio: `/shutdownscheduler remove venerdi 18 00` |
+| `/shutdownscheduler list` | Mostra tutti gli orari di spegnimento configurati. |
+| `/shutdownscheduler reload` | Ricarica il file di configurazione `shutdown_scheduler.json` senza riavviare il server. |
+| `/shutdownscheduler test` | Esegue un test immediato, mostrando in chat il prossimo spegnimento programmato. |
+| `/shutdownscheduler force` | Forza lo spegnimento immediato del server (equivalente a `/stop`). |
+

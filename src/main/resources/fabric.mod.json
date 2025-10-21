@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "shutdown-scheduler",
+	"version": "${version}",
+	"name": "Shutdown scheduler",
+	"description": "Shutdown scheduler",
+	"authors": [
+		"Robert Ciobanu"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/shutdown-scheduler/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.ciobert.shutdown.scheduler.ShutdownScheduler"
+		],
+		"fabric-datagen": [
+			"com.ciobert.shutdown.scheduler.ShutdownSchedulerDataGenerator"
+		],
+		"client": [
+			"com.ciobert.shutdown.scheduler.ShutdownSchedulerClient"
+		]
+	},
+	"mixins": [
+		"shutdown-scheduler.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

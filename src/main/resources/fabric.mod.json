@@ -8,8 +8,8 @@
 		"Robert Ciobanu"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://shutdown-scheduler-mod.netlify.app/",
+		"sources": "https://github.com/Ciobert345/Shutdown-scheduler-mod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/shutdown-scheduler/icon.png",

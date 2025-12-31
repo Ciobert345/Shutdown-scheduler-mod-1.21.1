@@ -4,6 +4,10 @@ A powerful **Fabric mod for Minecraft 1.21.1** that allows you to automatically 
 
 Perfect for private or dedicated servers that need to power off automatically at defined hours to save resources.
 
+## 🔗 Links
+- **Website**: [shutdown-scheduler-mod.netlify.app](https://shutdown-scheduler-mod.netlify.app/)
+- **Repository**: [GitHub](https://github.com/Ciobert345/Shutdown-scheduler-mod)
+
 ---
 
 ## 🚀 Features

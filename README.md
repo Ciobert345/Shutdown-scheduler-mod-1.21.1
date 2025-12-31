@@ -1,41 +1,72 @@
 # 🕒 Shutdown Scheduler (Fabric Mod)
 
-A simple **Fabric mod for Minecraft 1.21.1** that allows you to automatically shut down your server at specific times, either through commands or scheduled logic.  
-Perfect for private or dedicated servers that need to power off automatically at a defined hour.
+A powerful **Fabric mod for Minecraft 1.21.1** that allows you to automatically shut down your server at specific times using a flexible grouping system and an in-game GUI.
 
+Perfect for private or dedicated servers that need to power off automatically at defined hours to save resources.
 
 ---
 
 ## 🚀 Features
 
-- Automatically shuts down the server at scheduled times.  
-- Supports running commands before shutdown.  
-- Clear console logging for monitoring actions.  
-- Compatible with **Fabric Loader 0.17.2+** and **Minecraft 1.21.1**.
+- **Scheduled Shutdowns**: Configure automatic shutdowns for any day of the week.
+- **Group System**: Organize your schedules into groups (e.g., "Weekdays", "Maintenance") and toggle them on/off independently.
+- **In-Game GUI**: Manage everything visually without editing files manually.
+- **Multi-language**: Supports English and Italian.
+- **Warning System**: Customizable countdown warnings before shutdown.
+
+---
+
+## 🛠️ Usage
+
+### Commands
+
+The mod uses two main command aliases:
+
+- `/ss`: The primary command for quick actions.
+- `/shutdownscheduler`: Opens the configuration menu directly.
+
+| Command | Description |
+|:---|:---|
+| `/shutdownscheduler` | Opens the **Config GUI** to manage groups, schedules, and settings. |
+| `/ss` | Opens the **Config GUI** (same as above). |
+| `/ss cancel` | Cancels a pending shutdown sequence (if the countdown has started). |
+| `/ss sync` | Forces a configuration sync (useful if you manually edited the config file). |
+
+### Configuration GUI
+
+Run `/ss` or `/shutdownscheduler` to open the menu. From there you can:
+1. **Create Groups**: Add new schedule groups.
+2. **Toggle Groups**: Enable or disable groups with a single click.
+3. **Manage Schedules**: Click on a group to add or remove shutdown times (Day + Time).
+4. **Settings**: Change the warning time (minutes) and language.
+
+### Configuration File (`config/shutdown_scheduler.json`)
+
+Advanced users can edit the config file directly.
+Example structure:
+
+```json
+{
+  "warning_minutes": 5,
+  "language": "en",
+  "groups": {
+    "default": {
+      "enabled": true,
+      "shutdowns": {
+        "0": [ "23:00" ], // Monday
+        "5": [ "02:00" ]  // Saturday
+      }
+    }
+  }
+}
+```
+
+**Days Index:**
+0: Monday, 1: Tuesday, ..., 6: Sunday
 
 ---
 
 ### 🧩 Requirements
 - **Minecraft 1.21.1**
-- **Fabric Loader 0.17.2+**
-- **Fabric API** (must be installed on the server)
-
----
-
-## 🛠️ Available Commands
-
-### 🛠️ Available Commands
-
-| Command | Description |
-|----------|--------------|
-| `/shutdownscheduler add <day> <hour> <minute>` | Adds a scheduled shutdown time.<br>Example: `/shutdownscheduler add monday 23 30` |
-| `/shutdownscheduler remove <day> <hour> <minute>` | Removes a previously scheduled shutdown time.<br>Example: `/shutdownscheduler remove friday 18 00` |
-| `/shutdownscheduler list` | Lists all scheduled shutdown times. |
-| `/shutdownscheduler reload` | Reloads the `shutdown_scheduler.json` configuration file without restarting the server. |
-| `/shutdownscheduler test` | Runs an immediate test, showing the next scheduled shutdown in chat. |
-| `/shutdownscheduler force` | Forces an immediate server shutdown (equivalent to `/stop`). |
-| `/shutdownscheduler language <it/en>` | Changes the mod’s language between Italian (`it`) and English (`en`). |
-| `/shutdownscheduler skipnext` | Skips the next scheduled shutdown (useful for maintenance or testing). |
-
-
----
+- **Fabric Loader**
+- **Fabric API**

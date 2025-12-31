@@ -207,8 +207,26 @@ public class ShutdownScheduler implements ModInitializer {
 					}));
 		});
 
-		// Scheduler principale
-		scheduler = Executors.newSingleThreadScheduledExecutor();
+		ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
+			if (scheduler != null && !scheduler.isShutdown()) {
+				LOGGER.info("Stopping Shutdown Scheduler...");
+				scheduler.shutdown();
+				try {
+					if (!scheduler.awaitTermination(5, TimeUnit.SECONDS)) {
+						scheduler.shutdownNow();
+					}
+				} catch (InterruptedException e) {
+					scheduler.shutdownNow();
+				}
+			}
+		});
+
+		// Scheduler principale con Thread Factory per thread Daemon
+		scheduler = Executors.newSingleThreadScheduledExecutor(r -> {
+			Thread t = new Thread(r, "ShutdownScheduler-Worker");
+			t.setDaemon(true);
+			return t;
+		});
 		scheduler.scheduleAtFixedRate(() -> {
 			try {
 				checkScheduledShutdowns();
